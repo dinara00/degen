@@ -1,0 +1,5 @@
+CREATE TABLE characters (char_id, name text, class_id);
+CREATE TABLE inventory (player_id, item_id, count int);
+CREATE TABLE items (item_id, name text, description text);
+CREATE TABLE players (player_id, char_id, controller_id, hp int, mp int, exp int);
+CREATE TABLE rooms (room_id int, h int, w int);
