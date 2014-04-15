@@ -1,5 +1,14 @@
-CREATE TABLE characters (char_id, name text, class_id);
 CREATE TABLE inventory (player_id, item_id, count int);
 CREATE TABLE items (item_id, name text, description text);
-CREATE TABLE players (player_id, char_id, controller_id, hp int, mp int, exp int);
-CREATE TABLE rooms (room_id int, h int, w int);
+CREATE TABLE players (player_id, char_id, controller_id, hp int, mp int, exp int, room_id int);
+CREATE TABLE rooms (room_id int, name text, description text, length int, width int, height int);
+CREATE UNIQUE INDEX item_ids on items(item_id);
+CREATE UNIQUE INDEX room_ids on rooms(room_id);
+CREATE TABLE tech(tech_id int, name text, description text, difficulty int, range int);
+CREATE UNIQUE INDEX tech_ids on tech(tech_id);
+CREATE TABLE perks(perk_id int, name text, description text);
+CREATE TABLE classes(class_id int primary key, name text, description text);
+CREATE TABLE req(req_id int primary key, name text, description text, str,dex,con,int,wis,cha,perk_id,class_id);
+CREATE TABLE tech_req(tech_id, req_id);
+CREATE TABLE characters (char_id int primary key, name text, str int, dex int, con int, int int, wis int, cha int);
+CREATE TABLE player_perks (player_id int, perk_id int);
