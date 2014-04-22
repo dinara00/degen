@@ -4,8 +4,6 @@ use common::sense;
 use DBI;
 use Data::Dumper qw(Dumper);
 
-use degen::room;
-
 sub new {
 
 	my $self = {
